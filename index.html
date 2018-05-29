@@ -39,7 +39,11 @@
 		<div class="top-bar"></div>
 		<section class="sections" data-type="infos">
 			<div class="section-box">
-				<div class="section-info">
+				<div class="section-info-tab active">
+					<div class="active">個人資料</div>
+					<div>工作經驗</div>
+				</div>
+				<div class="section-info active">
 					<img src="./images/self.png" alt="">
 					<div class="section-info-body">
 						<div>姓名:陳慶陽</div>
@@ -246,6 +250,11 @@
 					}
 				}
 			}
+		})
+		$('.section-info-tab div').on('click',function(){
+			var index=$(this).index()
+			$(this).addClass('active').siblings().removeClass('active')
+			$('.section-info').eq(index).addClass('active').siblings().removeClass('active')
 		})
 	    var swiper = new Swiper('.swiper-container', {
 			slidesPerView: 4,
