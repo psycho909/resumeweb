@@ -235,11 +235,12 @@
 			var documentScrollTop=$(document).scrollTop()
 			for(var i=0;i<sectionsArr.length;i++){
 				var itemTop=$(sectionsArr[i]).offset().top
+				var itemHeight=$(sectionsArr[i]).outerHeight();
 				if(documentScrollTop < ($(sectionsArr[0]).offset().top-200)){
 					$('.sections').removeClass('active')
 					$('.sections').eq(i).find('.skill-bar-value').css('width',0+'%')
 				}
-				if(documentScrollTop >= itemTop - 200){
+				if(documentScrollTop >= itemTop - 250){
 					$('.sections').not($('.sections').eq(i)).removeClass('active')
 					$('.sections').eq(i).addClass('active')
 					if(i == 1){
@@ -248,7 +249,11 @@
 							$(v).find('.skill-bar-value').css('width',widthValue+'%')
 						})
 					}
+				}else if(documentScrollTop >= ($(sectionsArr[3]).offset().top - $(sectionsArr[3]).outerHeight(true))){
+					$('.sections').not($('.sections').eq(3)).removeClass('active')
+					$('.sections').eq(3).addClass('active')
 				}
+				console.log(documentScrollTop,itemTop-250)
 			}
 		})
 		$('.section-info-tab div').on('click',function(){
