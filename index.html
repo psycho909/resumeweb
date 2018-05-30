@@ -241,8 +241,8 @@
 					$('.sections').removeClass('active')
 					$('.sections').eq(i).find('.skill-bar-value').css('width',0+'%')
 				}
-				if(documentScrollTop >= itemTop - 250){
-					$('.sections').not($('.sections').eq(i)).removeClass('active')
+				if(documentScrollTop >= itemTop - 300){
+					// $('.sections').not($('.sections').eq(i)).removeClass('active')
 					$('.sections').eq(i).addClass('active')
 					if(i == 1){
 						$('.sections').eq(i).find('.skill-body').each(function(i,v){
@@ -250,8 +250,8 @@
 							$(v).find('.skill-bar-value').css('width',widthValue+'%')
 						})
 					}
-				}else if(documentScrollTop >= ($(sectionsArr[3]).offset().top - $(sectionsArr[3]).outerHeight(true))){
-					$('.sections').not($('.sections').eq(3)).removeClass('active')
+				}else if(documentScrollTop >= ($(sectionsArr[3]).offset().top - $(sectionsArr[3]).outerHeight(true)-150)){
+					// $('.sections').not($('.sections').eq(3)).removeClass('active')
 					$('.sections').eq(3).addClass('active')
 				}
 				console.log(documentScrollTop,itemTop-250)
